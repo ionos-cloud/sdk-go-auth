@@ -1,4 +1,4 @@
-# Go API client for IONOS Cloud Auth Service
+# Go API client for ionoscloud Auth Service
 
 The IONOS Cloud SDK Auth for GO provides you with access to the IONOS Cloud Auth API. Use the Auth API to manage tokens for secure access to IONOS Cloud APIs (Auth API, Cloud API, Reseller API, Activity Log API, and others).
 
