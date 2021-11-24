@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 1.0.1 (November, 2021)
+
+### Code Enhancements:
+
+* sorted imports
+* removed `git_push.sh` script
+
 ## 1.0.0 (November, 2021)
 
 ### Features:
