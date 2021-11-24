@@ -1,3 +1,17 @@
+[![CI](https://github.com/ionos-cloud/ionosctl/workflows/CI/badge.svg)](https://github.com/ionos-cloud/sdk-go-auth/actions)
+[![Gitter](https://img.shields.io/gitter/room/ionos-cloud/sdk-general)](https://gitter.im/ionos-cloud/sdk-general)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sdk-go-auth&metric=alert_status)](https://sonarcloud.io/dashboard?id=sdk-go-auth)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=sdk-go-auth&metric=bugs)](https://sonarcloud.io/dashboard?id=sdk-go-auth)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=sdk-go-auth&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=sdk-go-auth)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=sdk-go-auth&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=sdk-go-auth)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=sdk-go-auth&metric=security_rating)](https://sonarcloud.io/dashboard?id=sdk-go-auth)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=sdk-go-auth&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=sdk-go-auth)
+[![Release](https://img.shields.io/github/v/release/ionos-cloud/sdk-go-auth.svg)](https://github.com/ionos-cloud/sdk-go-auth/releases/latest)
+[![Release Date](https://img.shields.io/github/release-date/ionos-cloud/sdk-go-auth.svg)](https://github.com/ionos-cloud/sdk-go-auth/releases/latest)
+[![Go](https://img.shields.io/github/go-mod/go-version/ionos-cloud/sdk-go-auth.svg)](https://github.com/ionos-cloud/sdk-go-auth)
+
+![Alt text](.github/IONOS.CLOUD.BLU.svg?raw=true "Title")
+
 # Go API client for IONOS Cloud Auth Service
 
 The IONOS Cloud SDK Auth for GO provides you with access to the IONOS Cloud Auth API. Use the Auth API to manage tokens for secure access to IONOS Cloud APIs (Auth API, Cloud API, Reseller API, Activity Log API, and others).
