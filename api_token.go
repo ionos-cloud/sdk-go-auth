@@ -11,12 +11,13 @@
 package ionoscloud
 
 import (
-	_context "context"
 	"fmt"
+	"strings"
+
+	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"strings"
 )
 
 // Linger please
