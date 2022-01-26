@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.0.3 (January 2022)
+
+### Documentation:
+
+* updated description for `TokensGenerate()` function
+
 ## 1.0.2 (January 2022)
 
 ### Code Enhancements:
