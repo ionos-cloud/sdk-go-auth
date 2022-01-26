@@ -4,7 +4,7 @@ info:
     (Auth API, Cloud API, Reseller API, Activity Log API, and others).
   title: Auth API
   version: "1.0"
-  x-sdk-patch-level: 2
+  x-sdk-patch-level: 3
 servers:
 - url: https://api.ionos.com/auth/v1
 tags:
@@ -26,11 +26,7 @@ paths:
         \ contract number in the `X-Contract-Number` header, by users with one or\
         \ with multiple contracts. However, a valid contract number must be provided\
         \ in the `X-Contract-Number` header to access the Auth API. By default, generated\
-        \ access tokens will expire after one year (subject to change).\n\nSample\
-        \ response: \n\n\n  ```\n  {\n    \"token\":\"eyJu...YifQ.eyJpc3...A0MjJ9.Kx_OHrm...HQguU\"\
-        \n  }\n  ```\n\n###  \n\nSample token use: \n\n\n  ```\n  ...\n  Authorization:\
-        \ Bearer eyJu...YifQ.eyJpc3...A0MjJ9.Kx_OHrm...HQguU\n  ...\n  ```\n\n ###\
-        \  "
+        \ access tokens will expire after one year (subject to change)."
       operationId: tokensGenerate
       parameters:
       - description: Users with multiple contracts must provide the contract number,

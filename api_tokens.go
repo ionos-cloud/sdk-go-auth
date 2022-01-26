@@ -587,28 +587,6 @@ func (r ApiTokensGenerateRequest) Execute() (Jwt, *APIResponse, error) {
 To access this endpoint, 'Basic Authentication' or 'Token Authentication' tokens with valid credentials must be encapsulated in the header, by users with one or with multiple contracts.
 
 The response will contain a newly-generated token for accessing any IONOS Cloud APIs (Auth API, Cloud API, Reseller API, Activity Log API, and others). The token can be used to access the APIs without providing the contract number in the `X-Contract-Number` header, by users with one or with multiple contracts. However, a valid contract number must be provided in the `X-Contract-Number` header to access the Auth API. By default, generated access tokens will expire after one year (subject to change).
-
-Sample response:
-
-
-  ```
-  {
-    "token":"eyJu...YifQ.eyJpc3...A0MjJ9.Kx_OHrm...HQguU"
-  }
-  ```
-
-###
-
-Sample token use:
-
-
-  ```
-  ...
-  Authorization: Bearer eyJu...YifQ.eyJpc3...A0MjJ9.Kx_OHrm...HQguU
-  ...
-  ```
-
- ###
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiTokensGenerateRequest
 */
