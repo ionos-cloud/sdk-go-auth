@@ -1,84 +1,21 @@
-# TokenApi
+# TokensApi
 
 All URIs are relative to *https://api.ionos.com/auth/v1*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**CreateToken**](TokenApi.md#CreateToken) | **Get** /tokens/generate | Create new tokens|
-|[**DeleteTokenByCriteria**](TokenApi.md#DeleteTokenByCriteria) | **Delete** /tokens | Delete tokens by criteria|
-|[**DeleteTokenById**](TokenApi.md#DeleteTokenById) | **Delete** /tokens/{tokenId} | Delete tokens|
-|[**GetAllTokens**](TokenApi.md#GetAllTokens) | **Get** /tokens | List all tokens|
-|[**GetTokenById**](TokenApi.md#GetTokenById) | **Get** /tokens/{tokenId} | Get tokens by Key ID|
+|[**TokensDeleteByCriteria**](TokensApi.md#TokensDeleteByCriteria) | **Delete** /tokens | Delete tokens by criteria|
+|[**TokensDeleteById**](TokensApi.md#TokensDeleteById) | **Delete** /tokens/{tokenId} | Delete tokens|
+|[**TokensFindById**](TokensApi.md#TokensFindById) | **Get** /tokens/{tokenId} | Get tokens by Key ID|
+|[**TokensGenerate**](TokensApi.md#TokensGenerate) | **Get** /tokens/generate | Create new tokens|
+|[**TokensGet**](TokensApi.md#TokensGet) | **Get** /tokens | List all tokens|
 
 
 
-## CreateToken
-
-```go
-var result Jwt = CreateToken(ctx)
-                      .XContractNumber(xContractNumber)
-                      .Execute()
-```
-
-Create new tokens
-
-
-
-### Example
+## TokensDeleteByCriteria
 
 ```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    xContractNumber := int32(56) // int32 | Users with multiple contracts must provide the contract number, for which the token is generated. (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TokenApi.CreateToken(context.Background()).XContractNumber(xContractNumber).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TokenApi.CreateToken``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateToken`: Jwt
-    fmt.Fprintf(os.Stdout, "Response from `TokenApi.CreateToken`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateTokenRequest struct via the builder pattern
-
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **xContractNumber** | **int32** | Users with multiple contracts must provide the contract number, for which the token is generated. | |
-
-### Return type
-
-[**Jwt**](../models/Jwt.md)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-
-## DeleteTokenByCriteria
-
-```go
-var result DeleteResponse = DeleteTokenByCriteria(ctx)
+var result DeleteResponse = TokensDeleteByCriteria(ctx)
                       .Criteria(criteria)
                       .XContractNumber(xContractNumber)
                       .Execute()
@@ -105,14 +42,14 @@ func main() {
     xContractNumber := int32(56) // int32 | Users with multiple contracts must provide the contract number, for which the token is generated. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TokenApi.DeleteTokenByCriteria(context.Background()).Criteria(criteria).XContractNumber(xContractNumber).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TokensApi.TokensDeleteByCriteria(context.Background()).Criteria(criteria).XContractNumber(xContractNumber).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TokenApi.DeleteTokenByCriteria``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.TokensDeleteByCriteria``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `DeleteTokenByCriteria`: DeleteResponse
-    fmt.Fprintf(os.Stdout, "Response from `TokenApi.DeleteTokenByCriteria`: %v\n", resp)
+    // response from `TokensDeleteByCriteria`: DeleteResponse
+    fmt.Fprintf(os.Stdout, "Response from `TokensApi.TokensDeleteByCriteria`: %v\n", resp)
 }
 ```
 
@@ -122,7 +59,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteTokenByCriteriaRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiTokensDeleteByCriteriaRequest struct via the builder pattern
 
 
 |Name | Type | Description  | Notes|
@@ -141,10 +78,10 @@ Other parameters are passed through a pointer to a apiDeleteTokenByCriteriaReque
 
 
 
-## DeleteTokenById
+## TokensDeleteById
 
 ```go
-var result DeleteResponse = DeleteTokenById(ctx, tokenId)
+var result DeleteResponse = TokensDeleteById(ctx, tokenId)
                       .XContractNumber(xContractNumber)
                       .Execute()
 ```
@@ -170,14 +107,14 @@ func main() {
     xContractNumber := int32(56) // int32 | Users with multiple contracts must provide the contract number, for which the token is generated. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TokenApi.DeleteTokenById(context.Background(), tokenId).XContractNumber(xContractNumber).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TokensApi.TokensDeleteById(context.Background(), tokenId).XContractNumber(xContractNumber).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TokenApi.DeleteTokenById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.TokensDeleteById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `DeleteTokenById`: DeleteResponse
-    fmt.Fprintf(os.Stdout, "Response from `TokenApi.DeleteTokenById`: %v\n", resp)
+    // response from `TokensDeleteById`: DeleteResponse
+    fmt.Fprintf(os.Stdout, "Response from `TokensApi.TokensDeleteById`: %v\n", resp)
 }
 ```
 
@@ -191,7 +128,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteTokenByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiTokensDeleteByIdRequest struct via the builder pattern
 
 
 |Name | Type | Description  | Notes|
@@ -209,73 +146,10 @@ Other parameters are passed through a pointer to a apiDeleteTokenByIdRequest str
 
 
 
-## GetAllTokens
+## TokensFindById
 
 ```go
-var result Tokens = GetAllTokens(ctx)
-                      .XContractNumber(xContractNumber)
-                      .Execute()
-```
-
-List all tokens
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    xContractNumber := int32(56) // int32 | Users with multiple contracts must provide the contract number, for which the token is generated. (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TokenApi.GetAllTokens(context.Background()).XContractNumber(xContractNumber).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TokenApi.GetAllTokens``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAllTokens`: Tokens
-    fmt.Fprintf(os.Stdout, "Response from `TokenApi.GetAllTokens`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetAllTokensRequest struct via the builder pattern
-
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **xContractNumber** | **int32** | Users with multiple contracts must provide the contract number, for which the token is generated. | |
-
-### Return type
-
-[**Tokens**](../models/Tokens.md)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-
-## GetTokenById
-
-```go
-var result Token = GetTokenById(ctx, tokenId)
+var result Token = TokensFindById(ctx, tokenId)
                       .XContractNumber(xContractNumber)
                       .Execute()
 ```
@@ -301,14 +175,14 @@ func main() {
     xContractNumber := int32(56) // int32 | Users with multiple contracts must provide the contract number, for which the token is generated. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TokenApi.GetTokenById(context.Background(), tokenId).XContractNumber(xContractNumber).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TokensApi.TokensFindById(context.Background(), tokenId).XContractNumber(xContractNumber).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TokenApi.GetTokenById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.TokensFindById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetTokenById`: Token
-    fmt.Fprintf(os.Stdout, "Response from `TokenApi.GetTokenById`: %v\n", resp)
+    // response from `TokensFindById`: Token
+    fmt.Fprintf(os.Stdout, "Response from `TokensApi.TokensFindById`: %v\n", resp)
 }
 ```
 
@@ -322,7 +196,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetTokenByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiTokensFindByIdRequest struct via the builder pattern
 
 
 |Name | Type | Description  | Notes|
@@ -332,6 +206,132 @@ Other parameters are passed through a pointer to a apiGetTokenByIdRequest struct
 ### Return type
 
 [**Token**](../models/Token.md)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+
+## TokensGenerate
+
+```go
+var result Jwt = TokensGenerate(ctx)
+                      .XContractNumber(xContractNumber)
+                      .Execute()
+```
+
+Create new tokens
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    xContractNumber := int32(56) // int32 | Users with multiple contracts must provide the contract number, for which the token is generated. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TokensApi.TokensGenerate(context.Background()).XContractNumber(xContractNumber).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.TokensGenerate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `TokensGenerate`: Jwt
+    fmt.Fprintf(os.Stdout, "Response from `TokensApi.TokensGenerate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiTokensGenerateRequest struct via the builder pattern
+
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **xContractNumber** | **int32** | Users with multiple contracts must provide the contract number, for which the token is generated. | |
+
+### Return type
+
+[**Jwt**](../models/Jwt.md)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+
+## TokensGet
+
+```go
+var result Tokens = TokensGet(ctx)
+                      .XContractNumber(xContractNumber)
+                      .Execute()
+```
+
+List all tokens
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    xContractNumber := int32(56) // int32 | Users with multiple contracts must provide the contract number, for which the token is generated. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TokensApi.TokensGet(context.Background()).XContractNumber(xContractNumber).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.TokensGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `TokensGet`: Tokens
+    fmt.Fprintf(os.Stdout, "Response from `TokensApi.TokensGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiTokensGetRequest struct via the builder pattern
+
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **xContractNumber** | **int32** | Users with multiple contracts must provide the contract number, for which the token is generated. | |
+
+### Return type
+
+[**Tokens**](../models/Tokens.md)
 
 ### HTTP request headers
 

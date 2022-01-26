@@ -1,7 +1,3 @@
----
-description: JSON Web Token
----
-
 # Jwt
 
 ## Properties
