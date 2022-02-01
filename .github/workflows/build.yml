@@ -5,7 +5,7 @@ on:
     branches:
       - master
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [ opened, synchronize, reopened ]
 jobs:
   sonarcloud:
     name: SonarCloud
@@ -19,3 +19,17 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  sshgit:
+    name: "Ensure no sensitive data is leaked"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "[Setup] Checkout code"
+        uses: actions/checkout@v2.4.0
+      - name: "[Setup] Setup Go"
+        uses: actions/setup-go@v2.1.5
+        with:
+          go-version: 1.17
+      - name: "[Setup] Install SSHGit"
+        run: go get -d github.com/eth0izzle/shhgit
+      - name: "[Security] Execute SSHGit"
+        run: ~/go/bin/shhgit -config-path ${{github.workspace}}/.github/shhgit -local .
