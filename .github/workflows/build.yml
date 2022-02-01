@@ -29,7 +29,7 @@ jobs:
         uses: actions/setup-go@v2.1.5
         with:
           go-version: 1.17
-      - name: "[Setup] Install SSHGit"
-        run: go get -d github.com/eth0izzle/shhgit
-      - name: "[Security] Execute SSHGit"
+      - name: "[Setup] Install SHHGit"
+        run: go get -d github.com/eth0izzle/shhgit; go install github.com/eth0izzle/shhgit
+      - name: "[Security] Execute SHHGit"
         run: ~/go/bin/shhgit -config-path ${{github.workspace}}/.github/shhgit -local .
