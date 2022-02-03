@@ -9,7 +9,7 @@ webhook_payload: |
     "text": "%s"
   }
 
-blacklisted_strings: [ "AKIAIOSFODNN7EXAMPLE", "username:password", "sshpass -p $SSH_PASS" ] # skip matches containing any of these strings (case-insensitive)
+blacklisted_strings: [ "username:password", "sshpass -p $SSH_PASS" ] # skip matches containing any of these strings (case-insensitive)
 blacklisted_extensions: [ ".exe", ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".tif", ".psd", ".xcf", ".zip", ".tar.gz", ".ttf", ".lock" ]
 blacklisted_paths: [ ".github{sep}shhgit", "vendor{sep}bundle", "vendor{sep}cache" ] # use {sep} for the OS' path separator (i.e. / or \)
 blacklisted_entropy_extensions: [ ".pem", "id_rsa", ".asc", ".ovpn", ".sqlite", ".sqlite3", ".log" ] # additional extensions to skip entropy checks
@@ -297,6 +297,12 @@ signatures:
   - part: 'contents'
     regex: "((\\\"|'|`)?((?i)aws)?_?((?i)session)?_?((?i)token)?(\\\"|'|`)?\\\\s{0,50}(:|=>|=)\\\\s{0,50}(\\\"|'|`)?[A-Za-z0-9/+=]{16,}(\\\"|'|`)?)"
     name: 'AWS Session Token'
+  - part: 'contents'
+    regex: '(eyJ[a-zA-Z0-9_=]+)\.([a-zA-Z0-9_=]+)\.([a-zA-Z0-9_\-\+\/=]*)'
+    name: 'IONOS Cloud JWT Token'
+  - part: 'contents'
+    regex: '(eyJ[a-zA-Z0-9_=]+)\...([a-zA-Z0-9_=]+)\...([a-zA-Z0-9_\-\+\/=]*)'
+    name: 'IONOS Cloud JWT Token Documentation'
   - part: 'contents'
     regex: "(?i)artifactory.{0,50}(\\\"|'|`)?[a-zA-Z0-9=]{112}(\\\"|'|`)?"
     name: 'Artifactory'
