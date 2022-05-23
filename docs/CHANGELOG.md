@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.0.4 (May 2022)
+
+### Code Enhancements:
+
+* added **utility functions** to easily convert pointers to values of basic types in `utils.go`
+* improved **error handling** while decoding API Response
+* fixed **value** for `Version` constant defined in `client.go`
+
 ## 1.0.3 (January 2022)
 
 ### Documentation:
