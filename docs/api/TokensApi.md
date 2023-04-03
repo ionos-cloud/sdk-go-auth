@@ -34,15 +34,17 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+
+    ionoscloud "github.com/ionos-cloud/sdk-go-auth"
+
 )
 
 func main() {
     criteria := "criteria_example" // string | Delete tokens by criteria EXPIRED, ALL, or CURRENT. The tokens are deleted for the specified contract.
     xContractNumber := int32(56) // int32 | Users with multiple contracts must provide the contract number, for which the token is generated. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+    configuration := ionoscloud.NewConfiguration()
+    apiClient := ionoscloud.NewAPIClient(configuration)
     resp, r, err := apiClient.TokensApi.TokensDeleteByCriteria(context.Background()).Criteria(criteria).XContractNumber(xContractNumber).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.TokensDeleteByCriteria``: %v\n", err)
@@ -99,15 +101,17 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+
+    ionoscloud "github.com/ionos-cloud/sdk-go-auth"
+
 )
 
 func main() {
     tokenId := "tokenId_example" // string | The Key ID of the token (can be retrieved from the header section of the token).
     xContractNumber := int32(56) // int32 | Users with multiple contracts must provide the contract number, for which the token is generated. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+    configuration := ionoscloud.NewConfiguration()
+    apiClient := ionoscloud.NewAPIClient(configuration)
     resp, r, err := apiClient.TokensApi.TokensDeleteById(context.Background(), tokenId).XContractNumber(xContractNumber).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.TokensDeleteById``: %v\n", err)
@@ -167,15 +171,17 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+
+    ionoscloud "github.com/ionos-cloud/sdk-go-auth"
+
 )
 
 func main() {
     tokenId := "tokenId_example" // string | The Key ID of the token (can be retrieved from the header section of the token).
     xContractNumber := int32(56) // int32 | Users with multiple contracts must provide the contract number, for which the token is generated. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+    configuration := ionoscloud.NewConfiguration()
+    apiClient := ionoscloud.NewAPIClient(configuration)
     resp, r, err := apiClient.TokensApi.TokensFindById(context.Background(), tokenId).XContractNumber(xContractNumber).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.TokensFindById``: %v\n", err)
@@ -235,14 +241,16 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+
+    ionoscloud "github.com/ionos-cloud/sdk-go-auth"
+
 )
 
 func main() {
     xContractNumber := int32(56) // int32 | Users with multiple contracts must provide the contract number, for which the token is generated. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+    configuration := ionoscloud.NewConfiguration()
+    apiClient := ionoscloud.NewAPIClient(configuration)
     resp, r, err := apiClient.TokensApi.TokensGenerate(context.Background()).XContractNumber(xContractNumber).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.TokensGenerate``: %v\n", err)
@@ -298,14 +306,16 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+
+    ionoscloud "github.com/ionos-cloud/sdk-go-auth"
+
 )
 
 func main() {
     xContractNumber := int32(56) // int32 | Users with multiple contracts must provide the contract number, for which the token is generated. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+    configuration := ionoscloud.NewConfiguration()
+    apiClient := ionoscloud.NewAPIClient(configuration)
     resp, r, err := apiClient.TokensApi.TokensGet(context.Background()).XContractNumber(xContractNumber).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.TokensGet``: %v\n", err)
