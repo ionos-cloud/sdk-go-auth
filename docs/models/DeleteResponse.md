@@ -51,4 +51,3 @@ SetSuccess sets Success field to given value.
 HasSuccess returns a boolean if a field has been set.
 
 
-

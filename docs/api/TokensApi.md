@@ -1,4 +1,4 @@
-# TokensApi
+# \TokensApi
 
 All URIs are relative to *https://api.ionos.com/auth/v1*
 
@@ -36,22 +36,21 @@ import (
     "os"
 
     ionoscloud "github.com/ionos-cloud/sdk-go-auth"
-
 )
 
 func main() {
     criteria := "criteria_example" // string | Delete tokens by criteria EXPIRED, ALL, or CURRENT. The tokens are deleted for the specified contract.
     xContractNumber := int32(56) // int32 | Users with multiple contracts must provide the contract number, for which the token is generated. (optional)
 
-    configuration := ionoscloud.NewConfiguration()
+    configuration := ionoscloud.NewConfiguration("USERNAME", "PASSWORD", "TOKEN", "HOST_URL")
     apiClient := ionoscloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TokensApi.TokensDeleteByCriteria(context.Background()).Criteria(criteria).XContractNumber(xContractNumber).Execute()
+    resource, resp, err := apiClient.TokensApi.TokensDeleteByCriteria(context.Background()).Criteria(criteria).XContractNumber(xContractNumber).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.TokensDeleteByCriteria``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", resp)
     }
     // response from `TokensDeleteByCriteria`: DeleteResponse
-    fmt.Fprintf(os.Stdout, "Response from `TokensApi.TokensDeleteByCriteria`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TokensApi.TokensDeleteByCriteria`: %v\n", resource)
 }
 ```
 
@@ -61,7 +60,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiTokensDeleteByCriteriaRequest struct via the builder pattern
+Other parameters are passed through a pointer to an apiTokensDeleteByCriteriaRequest struct via the builder pattern
 
 
 |Name | Type | Description  | Notes|
@@ -103,22 +102,21 @@ import (
     "os"
 
     ionoscloud "github.com/ionos-cloud/sdk-go-auth"
-
 )
 
 func main() {
     tokenId := "tokenId_example" // string | The Key ID of the token (can be retrieved from the header section of the token).
     xContractNumber := int32(56) // int32 | Users with multiple contracts must provide the contract number, for which the token is generated. (optional)
 
-    configuration := ionoscloud.NewConfiguration()
+    configuration := ionoscloud.NewConfiguration("USERNAME", "PASSWORD", "TOKEN", "HOST_URL")
     apiClient := ionoscloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TokensApi.TokensDeleteById(context.Background(), tokenId).XContractNumber(xContractNumber).Execute()
+    resp, err := apiClient.TokensApi.TokensDeleteById(context.Background(), tokenId).XContractNumber(xContractNumber).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.TokensDeleteById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", resp)
     }
     // response from `TokensDeleteById`: DeleteResponse
-    fmt.Fprintf(os.Stdout, "Response from `TokensApi.TokensDeleteById`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TokensApi.TokensDeleteById`: %v\n", resource)
 }
 ```
 
@@ -132,7 +130,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiTokensDeleteByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to an apiTokensDeleteByIdRequest struct via the builder pattern
 
 
 |Name | Type | Description  | Notes|
@@ -173,22 +171,21 @@ import (
     "os"
 
     ionoscloud "github.com/ionos-cloud/sdk-go-auth"
-
 )
 
 func main() {
     tokenId := "tokenId_example" // string | The Key ID of the token (can be retrieved from the header section of the token).
     xContractNumber := int32(56) // int32 | Users with multiple contracts must provide the contract number, for which the token is generated. (optional)
 
-    configuration := ionoscloud.NewConfiguration()
+    configuration := ionoscloud.NewConfiguration("USERNAME", "PASSWORD", "TOKEN", "HOST_URL")
     apiClient := ionoscloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TokensApi.TokensFindById(context.Background(), tokenId).XContractNumber(xContractNumber).Execute()
+    resource, resp, err := apiClient.TokensApi.TokensFindById(context.Background(), tokenId).XContractNumber(xContractNumber).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.TokensFindById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", resp)
     }
     // response from `TokensFindById`: Token
-    fmt.Fprintf(os.Stdout, "Response from `TokensApi.TokensFindById`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TokensApi.TokensFindById`: %v\n", resource)
 }
 ```
 
@@ -202,7 +199,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiTokensFindByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to an apiTokensFindByIdRequest struct via the builder pattern
 
 
 |Name | Type | Description  | Notes|
@@ -243,21 +240,20 @@ import (
     "os"
 
     ionoscloud "github.com/ionos-cloud/sdk-go-auth"
-
 )
 
 func main() {
     xContractNumber := int32(56) // int32 | Users with multiple contracts must provide the contract number, for which the token is generated. (optional)
 
-    configuration := ionoscloud.NewConfiguration()
+    configuration := ionoscloud.NewConfiguration("USERNAME", "PASSWORD", "TOKEN", "HOST_URL")
     apiClient := ionoscloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TokensApi.TokensGenerate(context.Background()).XContractNumber(xContractNumber).Execute()
+    resource, resp, err := apiClient.TokensApi.TokensGenerate(context.Background()).XContractNumber(xContractNumber).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.TokensGenerate``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", resp)
     }
     // response from `TokensGenerate`: Jwt
-    fmt.Fprintf(os.Stdout, "Response from `TokensApi.TokensGenerate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TokensApi.TokensGenerate`: %v\n", resource)
 }
 ```
 
@@ -267,7 +263,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiTokensGenerateRequest struct via the builder pattern
+Other parameters are passed through a pointer to an apiTokensGenerateRequest struct via the builder pattern
 
 
 |Name | Type | Description  | Notes|
@@ -308,21 +304,20 @@ import (
     "os"
 
     ionoscloud "github.com/ionos-cloud/sdk-go-auth"
-
 )
 
 func main() {
     xContractNumber := int32(56) // int32 | Users with multiple contracts must provide the contract number, for which the token is generated. (optional)
 
-    configuration := ionoscloud.NewConfiguration()
+    configuration := ionoscloud.NewConfiguration("USERNAME", "PASSWORD", "TOKEN", "HOST_URL")
     apiClient := ionoscloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TokensApi.TokensGet(context.Background()).XContractNumber(xContractNumber).Execute()
+    resource, resp, err := apiClient.TokensApi.TokensGet(context.Background()).XContractNumber(xContractNumber).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.TokensGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", resp)
     }
     // response from `TokensGet`: Tokens
-    fmt.Fprintf(os.Stdout, "Response from `TokensApi.TokensGet`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TokensApi.TokensGet`: %v\n", resource)
 }
 ```
 
@@ -332,7 +327,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiTokensGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to an apiTokensGetRequest struct via the builder pattern
 
 
 |Name | Type | Description  | Notes|
