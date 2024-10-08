@@ -1,7 +1,7 @@
 /*
  * Auth API
  *
- * Use the Auth API to manage tokens for secure access to IONOS Cloud  APIs (Auth API, Cloud API, Reseller API, Activity Log API, and others).
+ * Use the Auth API to manage tokens for secure access to IONOS Cloud APIs (Auth API, Cloud API, Reseller API, Activity Log API, and others).
  *
  * API version: 1.0
  */
@@ -28,10 +28,16 @@ const (
 	IonosPinnedCertEnvVar = "IONOS_PINNED_CERT"
 	IonosLogLevelEnvVar   = "IONOS_LOG_LEVEL"
 	DefaultIonosServerUrl = "https://api.ionos.com/auth/v1"
-	DefaultIonosBasePath  = "/auth/v1"
+	DefaultIonosBasePath  = ""
 	defaultMaxRetries     = 3
 	defaultWaitTime       = time.Duration(100) * time.Millisecond
 	defaultMaxWaitTime    = time.Duration(2000) * time.Millisecond
+)
+
+var (
+	IonosServerUrls = []string{
+		"https://api.ionos.com/auth/v1",
+	}
 )
 
 // contextKeys are used to identify the type of value in the context.
@@ -128,7 +134,7 @@ func NewConfiguration(username, password, token, hostUrl string) *Configuration 
 	cfg := &Configuration{
 		DefaultHeader:      make(map[string]string),
 		DefaultQueryParams: url.Values{},
-		UserAgent:          "ionos-cloud-sdk-go-auth/v1.0.7",
+		UserAgent:          "ionos-cloud-sdk-go-auth/v1.0.8",
 		Debug:              false,
 		Username:           username,
 		Password:           password,

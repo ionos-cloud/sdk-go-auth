@@ -78,6 +78,22 @@ Other parameters are passed through a pointer to an apiTokensDeleteByCriteriaReq
 - **Accept**: application/json
 
 
+### URLs Configuration per Operation
+Each operation can use different server URL defined using `OperationServers` map in the `Configuration`.
+An operation is uniquely identified by `"TokensApiService.TokensDeleteByCriteria"` string.
+Similar rules for overriding default operation server index and variables apply by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
+
+```golang
+ctx := context.WithValue(context.Background(), {packageName}.ContextOperationServerIndices, map[string]int{
+    "TokensApiService.TokensDeleteByCriteria": 2,
+})
+ctx = context.WithValue(context.Background(), {packageName}.ContextOperationServerVariables, map[string]map[string]string{
+    "TokensApiService.TokensDeleteByCriteria": {
+    "port": "8443",
+},
+})
+```
+
 
 ## TokensDeleteById
 
@@ -146,6 +162,22 @@ Other parameters are passed through a pointer to an apiTokensDeleteByIdRequest s
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
+
+### URLs Configuration per Operation
+Each operation can use different server URL defined using `OperationServers` map in the `Configuration`.
+An operation is uniquely identified by `"TokensApiService.TokensDeleteById"` string.
+Similar rules for overriding default operation server index and variables apply by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
+
+```golang
+ctx := context.WithValue(context.Background(), {packageName}.ContextOperationServerIndices, map[string]int{
+    "TokensApiService.TokensDeleteById": 2,
+})
+ctx = context.WithValue(context.Background(), {packageName}.ContextOperationServerVariables, map[string]map[string]string{
+    "TokensApiService.TokensDeleteById": {
+    "port": "8443",
+},
+})
+```
 
 
 ## TokensFindById
@@ -216,12 +248,29 @@ Other parameters are passed through a pointer to an apiTokensFindByIdRequest str
 - **Accept**: application/json
 
 
+### URLs Configuration per Operation
+Each operation can use different server URL defined using `OperationServers` map in the `Configuration`.
+An operation is uniquely identified by `"TokensApiService.TokensFindById"` string.
+Similar rules for overriding default operation server index and variables apply by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
+
+```golang
+ctx := context.WithValue(context.Background(), {packageName}.ContextOperationServerIndices, map[string]int{
+    "TokensApiService.TokensFindById": 2,
+})
+ctx = context.WithValue(context.Background(), {packageName}.ContextOperationServerVariables, map[string]map[string]string{
+    "TokensApiService.TokensFindById": {
+    "port": "8443",
+},
+})
+```
+
 
 ## TokensGenerate
 
 ```go
 var result Jwt = TokensGenerate(ctx)
                       .XContractNumber(xContractNumber)
+                      .Ttl(ttl)
                       .Execute()
 ```
 
@@ -244,10 +293,11 @@ import (
 
 func main() {
     xContractNumber := int32(56) // int32 | Users with multiple contracts must provide the contract number, for which the token is generated. (optional)
+    ttl := int32(56) // int32 | The maximum time that the access token will be valid for use within the application in seconds. (optional) (default to 31536000)
 
     configuration := ionoscloud.NewConfiguration("USERNAME", "PASSWORD", "TOKEN", "HOST_URL")
     apiClient := ionoscloud.NewAPIClient(configuration)
-    resource, resp, err := apiClient.TokensApi.TokensGenerate(context.Background()).XContractNumber(xContractNumber).Execute()
+    resource, resp, err := apiClient.TokensApi.TokensGenerate(context.Background()).XContractNumber(xContractNumber).Ttl(ttl).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.TokensGenerate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", resp)
@@ -269,6 +319,7 @@ Other parameters are passed through a pointer to an apiTokensGenerateRequest str
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **xContractNumber** | **int32** | Users with multiple contracts must provide the contract number, for which the token is generated. | |
+| **ttl** | **int32** | The maximum time that the access token will be valid for use within the application in seconds. | [default to 31536000]|
 
 ### Return type
 
@@ -279,6 +330,22 @@ Other parameters are passed through a pointer to an apiTokensGenerateRequest str
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
+
+### URLs Configuration per Operation
+Each operation can use different server URL defined using `OperationServers` map in the `Configuration`.
+An operation is uniquely identified by `"TokensApiService.TokensGenerate"` string.
+Similar rules for overriding default operation server index and variables apply by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
+
+```golang
+ctx := context.WithValue(context.Background(), {packageName}.ContextOperationServerIndices, map[string]int{
+    "TokensApiService.TokensGenerate": 2,
+})
+ctx = context.WithValue(context.Background(), {packageName}.ContextOperationServerVariables, map[string]map[string]string{
+    "TokensApiService.TokensGenerate": {
+    "port": "8443",
+},
+})
+```
 
 
 ## TokensGet
@@ -343,4 +410,20 @@ Other parameters are passed through a pointer to an apiTokensGetRequest struct v
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
+
+### URLs Configuration per Operation
+Each operation can use different server URL defined using `OperationServers` map in the `Configuration`.
+An operation is uniquely identified by `"TokensApiService.TokensGet"` string.
+Similar rules for overriding default operation server index and variables apply by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
+
+```golang
+ctx := context.WithValue(context.Background(), {packageName}.ContextOperationServerIndices, map[string]int{
+    "TokensApiService.TokensGet": 2,
+})
+ctx = context.WithValue(context.Background(), {packageName}.ContextOperationServerVariables, map[string]map[string]string{
+    "TokensApiService.TokensGet": {
+    "port": "8443",
+},
+})
+```
 
