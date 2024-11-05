@@ -50,7 +50,7 @@ const (
 	RequestStatusFailed  = "FAILED"
 	RequestStatusDone    = "DONE"
 
-	Version = "1.0.9"
+	Version = "1.0.10"
 )
 
 // APIClient manages communication with the Auth API API v1.0
